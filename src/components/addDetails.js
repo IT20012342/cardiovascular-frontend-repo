@@ -46,7 +46,7 @@ export default function AddDetails(){
             setOutput("There is high risk of cardiovascular disease in the next ten years")
         }
         else{
-            setOutput("Server error")
+            setOutput("All the inputs are required")
         }
         
     }
