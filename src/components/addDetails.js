@@ -203,7 +203,7 @@ export default function AddDetails(){
 
                     <button type="submit" class="btn btn-primary" style={{width: '86%', marginTop: 15}}>SUBMIT</button>
                     <div style={{marginTop:25}}></div>
-                    <button type="submit" class="btn btn-outline-primary" style={{width: '86%'}}>RESET</button>
+                    <button type="reset" class="btn btn-outline-primary" style={{width: '86%'}}>RESET</button>
                 
                 </form>
             </div>
