@@ -66,6 +66,15 @@ export default function AddDetails(){
           .then((data) =>  generateResult(data));
     }
 
+    const resetHandler = () => {
+        setAge('');
+        setSex('');
+        setbloodpressure('');
+        setCholesterol('');
+        setDiabetes('');
+        setSmoking('');
+      };
+
 
     return(
         
@@ -84,21 +93,21 @@ export default function AddDetails(){
                 <form onSubmit={sendData}>
 
                     <div class="form-group row" >
-                        <label class="col-sm-5 col-form-label">Age</label>
-                        <div class="col-sm-5 text-center">
-                            <input type="number" class="form-control" id="age" placeholder="Age"
+                        <label class="col-sm col-form-label">Age</label>
+                        <div class="col-sm text-center">
+                            <input type="number" class="form-control" id="age" placeholder="Age" value={age}
                                 onChange={(e) => {
                                 setAge(e.target.value);
                             }}
-                        required/>
+                        required />
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label">Gender</label>
-                        <div class="col-sm-6" style={{marginTop:'auto', marginBottom:'auto'}}>
+                        <label class="col-sm col-form-label">Gender</label>
+                        <div class="col-sm" style={{marginTop:'auto', marginBottom:'auto'}}>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="gender" value="1"
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value='1' checked={sex === '1'}
                             onChange={(e) => {
                                 setSex(e.target.value);
                             }}
@@ -107,20 +116,19 @@ export default function AddDetails(){
                         </div>
 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="gender" value="2" 
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="2" checked={sex === '2'}
                             onChange={(e) => {
                                 setSex(e.target.value);
-                            }}
-                            required/>
+                            }}/>
                             <label class="form-check-label">Female</label>
                         </div>
                     </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label">Blood Pressure</label>
-                        <div class="col-sm-5">
-                            <input type="number" class="form-control" id="bloodPressure" placeholder="mmHg" 
+                        <label class="col-sm col-form-label">Blood Pressure</label>
+                        <div class="col-sm">
+                            <input type="number" class="form-control" id="bloodPressure" placeholder="mmHG" value={bloodpressure}
                             onChange={(e) => {
                             setbloodpressure(e.target.value);
                             }}
@@ -130,9 +138,9 @@ export default function AddDetails(){
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label">Cholesterol Level</label>
-                        <div class="col-sm-5">
-                            <input type="number" class="form-control" id="cholesterolLevel" placeholder="mg/dL"
+                        <label class="col-sm col-form-label">Cholesterol Level</label>
+                        <div class="col-sm">
+                            <input type="number" class="form-control" id="cholesterolLevel" placeholder="mg/dL" 
                             onChange={(e) => {
                             setCholesterol(e.target.value);
                             }}
@@ -141,10 +149,10 @@ export default function AddDetails(){
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label">Diabetes Patient</label>
-                        <div class="col-sm-6" style={{marginTop:'auto', marginBottom:'auto'}}>
+                        <label class="col-sm col-form-label">Diabetes Patient</label>
+                        <div class="col-sm" style={{marginTop:'auto', marginBottom:'auto'}}>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="diabetes" id="diabetes" value="1"
+                            <input class="form-check-input" type="radio" name="diabetes" id="diabetes" value="1" checked={diabetes === '1'}
                             onChange={(e) => {
                                 setDiabetes(e.target.value);
                             }}
@@ -153,60 +161,35 @@ export default function AddDetails(){
                         </div>
                         
                         <div class="form-check form-check-inline" >
-                            <input class="form-check-input" type="radio" name="diabetes" id="diabetes" value="2"
+                            <input class="form-check-input" type="radio" name="diabetes" id="diabetes" value="2" checked={diabetes === '2'}
                             onChange={(e) => {
                                 setDiabetes(e.target.value);
                             }}
-                            required/>
+                            />
                             <label class="form-check-label">No</label>
                         </div>
                     </div>
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-sm-5 col-form-label">Smoking Status</label>
-                        <div class="col-sm-6" style={{marginTop:'auto', marginBottom:'auto'}}>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="smoker" id="smoker" value="1"
-                            onChange={(e) => {
+                        <label class="col-sm col-form-label">Smoking</label>
+                        <div class="col-sm text-center">
+                        <select class="custom-select my-1 mr-sm-2" id="smoking" onChange={(e) => {
                                 setSmoking(e.target.value);
                             }}
-                            required/>
-                            <label class="form-check-label">Never</label>
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="smoker" id="smoker" value="2"
-                            onChange={(e) => {
-                                setSmoking(e.target.value);
-                            }}
-                            required/>
-                            <label class="form-check-label">Stopped Recently</label>
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="smoker" id="smoker" value="3"
-                            onChange={(e) => {
-                                setSmoking(e.target.value);
-                            }}
-                            required/>
-                            <label class="form-check-label">Occasionally</label>
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="smoker" id="smoker" value="4"
-                            onChange={(e) => {
-                                setSmoking(e.target.value);
-                            }}
-                            required />
-                            <label class="form-check-label">Everyday</label>
+                        required>
+                            <option value="" selected>Choose...</option>
+                            <option value="1">Never</option>
+                            <option value="2">Stopped Recently</option>
+                            <option value="3">Occasionally</option>
+                            <option value="4">Everday</option>
+                        </select>
                         </div>
                     </div>
-                    </div>
 
-                    <button type="submit" class="btn btn-primary" style={{width: '86%', marginTop: 15}}>SUBMIT</button>
+                    <button type="submit" class="btn btn-primary" style={{width: '100%', marginTop: 15}} disabled={!age || !sex || !bloodpressure || !cholesterol || !diabetes || !smoking}>SUBMIT</button>
                     <div style={{marginTop:25}}></div>
-                    <button type="reset" class="btn btn-outline-primary" style={{width: '86%'}}>RESET</button>
+                    <button type="reset" class="btn btn-outline-primary" style={{width: '100%'}} onClick={resetHandler}>RESET</button>
                 
                 </form>
             </div>
