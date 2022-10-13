@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 var bg = require('../bg1.jpg');
 
+
 // const styles = {
 //     main: {
 //         backgroundImage: `url(${bg})`,
@@ -73,7 +74,7 @@ export default function AddDetails(){
         backgroundRepeat: 'no-repeat',
         width: '100vw',
         height: '100vh'}}>
-            <div style={{margin:'auto', backgroundColor: 'rgba(180, 232, 217, 0.5)', width: '45%'}}>
+            <div class = 'borderClass' style={{margin:'auto', backgroundColor: 'rgba(180, 232, 217, 0.5)', width: '46%'}}>
             <div className="d-flex justify-content-center">
                 <h1 style={{color: '#6668ff', paddingBottom: '4%', fontSize: 30, paddingTop: '4%', fontWeight: 'bolder'}}> CARDIOVASCULAR RISK ASSESSMENT</h1>
             </div>
@@ -89,7 +90,7 @@ export default function AddDetails(){
                                 onChange={(e) => {
                                 setAge(e.target.value);
                             }}
-                        required />
+                        required/>
                         </div>
                     </div>
 
@@ -100,7 +101,8 @@ export default function AddDetails(){
                             <input class="form-check-input" type="radio" name="gender" id="gender" value="1"
                             onChange={(e) => {
                                 setSex(e.target.value);
-                            }}/>
+                            }}
+                            required/>
                             <label class="form-check-label">Male</label>
                         </div>
 
@@ -108,7 +110,8 @@ export default function AddDetails(){
                             <input class="form-check-input" type="radio" name="gender" id="gender" value="2" 
                             onChange={(e) => {
                                 setSex(e.target.value);
-                            }}/>
+                            }}
+                            required/>
                             <label class="form-check-label">Female</label>
                         </div>
                     </div>
@@ -117,7 +120,7 @@ export default function AddDetails(){
                     <div class="form-group row">
                         <label class="col-sm-5 col-form-label">Blood Pressure</label>
                         <div class="col-sm-5">
-                            <input type="number" class="form-control" id="bloodPressure" placeholder="mmHG" 
+                            <input type="number" class="form-control" id="bloodPressure" placeholder="mmHg" 
                             onChange={(e) => {
                             setbloodpressure(e.target.value);
                             }}
@@ -145,7 +148,7 @@ export default function AddDetails(){
                             onChange={(e) => {
                                 setDiabetes(e.target.value);
                             }}
-                            />
+                            required/>
                             <label class="form-check-label">Yes</label>
                         </div>
                         
@@ -154,7 +157,7 @@ export default function AddDetails(){
                             onChange={(e) => {
                                 setDiabetes(e.target.value);
                             }}
-                            />
+                            required/>
                             <label class="form-check-label">No</label>
                         </div>
                     </div>
@@ -168,8 +171,8 @@ export default function AddDetails(){
                             onChange={(e) => {
                                 setSmoking(e.target.value);
                             }}
-                            />
-                            <label class="form-check-label">1</label>
+                            required/>
+                            <label class="form-check-label">Never</label>
                         </div>
 
                         <div class="form-check form-check-inline">
@@ -177,8 +180,8 @@ export default function AddDetails(){
                             onChange={(e) => {
                                 setSmoking(e.target.value);
                             }}
-                            />
-                            <label class="form-check-label">2</label>
+                            required/>
+                            <label class="form-check-label">Stopped Recently</label>
                         </div>
 
                         <div class="form-check form-check-inline">
@@ -186,8 +189,8 @@ export default function AddDetails(){
                             onChange={(e) => {
                                 setSmoking(e.target.value);
                             }}
-                            />
-                            <label class="form-check-label">3</label>
+                            required/>
+                            <label class="form-check-label">Occasionally</label>
                         </div>
 
                         <div class="form-check form-check-inline">
@@ -195,8 +198,8 @@ export default function AddDetails(){
                             onChange={(e) => {
                                 setSmoking(e.target.value);
                             }}
-                            />
-                            <label class="form-check-label">4</label>
+                            required />
+                            <label class="form-check-label">Everyday</label>
                         </div>
                     </div>
                     </div>
@@ -209,11 +212,13 @@ export default function AddDetails(){
             </div>
             
             <div className="d-flex justify-content-center" style={{marginTop:40}}>
-                <div class="card bg-light mb-3 " style={{width:560}}>
-                    <div className="card-header text-center font-weight-bold" style={{backgroundColor: '#8AE7C5'}}>Result</div>
-                     <div className="card-body" style={{minHeight:45, backgroundColor: '#D1F1E6'}}>
+                <div class="card bg-light mb-3 " style={{width:'70%'}}>
+                    <div className="card-header text-center font-weight-bold" style={{backgroundColor: '#8AE7C5'}}>
                         <p className="card-text text-center" style={{color: resultColor}}>{output}</p>
-                     </div>
+                    </div>
+                     {/* <div className="card-body" style={{minHeight:45, backgroundColor: '#D1F1E6'}}>
+                        
+                     </div> */}
                 </div>      
             </div>   
             </div>
