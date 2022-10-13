@@ -87,7 +87,7 @@ export default function AddDetails(){
         <nav class="navbar navbar-light"  style={{backgroundColor: 'rgba(180, 232, 217, 1)'}}>
           <span class="navbar-brand mb-0 h1">CVD Check</span>
         </nav>
-            <div className = 'borderClass' style={{margin:'auto'}}>
+            <div className = 'borderClass'>
             <div className="d-flex justify-content-center">
                 <h1 style={{ paddingBottom: '4%', paddingTop: '4%', fontWeight: 'bolder'}}> 10-Year CVD Risk Prediction Of Sri Lankans</h1>
 
