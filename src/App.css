@@ -37,6 +37,7 @@
   }
 }
 
+
 .div1 {
   width: 100vw;
   height: 100vh;
@@ -83,3 +84,47 @@
 #card-text-text-center {
   color: resultColor;
 }
+
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (min-width: 600px) {
+  .borderClass {
+    width: 46%;
+    background-color: rgba(180, 232, 217, 0.5);
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+  }
+  .card{
+    width: 70%;
+    margin-bottom: 20px;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .borderClass {
+    width: 95%;
+    background-color: rgba(180, 232, 217, 0.5);
+    margin: auto;
+    
+  }
+  .card{
+    width: 99%;
+    /* min-height: 30px; */
+  }
+  h1{
+    color: #6668ff;
+    font-size: 15px;
+    
+  }
+}
+
+
+
+/* h1{
+  color: red;
+  font-size: 1000;
+} */
+

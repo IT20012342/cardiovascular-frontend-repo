@@ -33,45 +33,44 @@ export default function AddDetails() {
       diabetes: diabetes,
       smoking: smoking,
     };
-
-    function generateResult(data) {
-      if (data === 0) {
-        setResultColor("blue");
-        setOutput(
-          "There is no risk of cardiovascular disease in the next ten years"
-        );
-      } else if (data === 1) {
-        setResultColor("red");
-        setOutput(
-          "There is high risk of cardiovascular disease in the next ten years"
-        );
-      } else {
-        alert("All the inputs are required");
-      }
+  
+  function generateResult(data){
+        if(data === 0){
+            setResultColor("blue")
+            setOutput("Your Risk is < 20% ")
+        }
+        else if (data === 1){
+            setResultColor("red")
+            setOutput("Your Risk is > 20%")
+        }
+        else{
+            alert("All the inputs are required")
+        }
+        
+    }
+   
+        // Simple POST request with a JSON body using fetch
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(jsonObj),
+        };
+        fetch(
+          'https://test-restapi-1.herokuapp.com/cardiac_prediction',
+          requestOptions
+        )
+          .then((response) => response.json())
+          .then((data) =>  generateResult(data));
     }
 
-    // Simple POST request with a JSON body using fetch
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(jsonObj),
-    };
-    fetch(
-      "https://test-restapi-1.herokuapp.com/cardiac_prediction",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((data) => generateResult(data));
-  }
-
-  const resetHandler = () => {
-    setAge("");
-    setSex("");
-    setbloodpressure("");
-    setCholesterol("");
-    setDiabetes("");
-    setSmoking("");
-  };
+    const resetHandler = () => {
+        setAge('');
+        setSex('');
+        setbloodpressure('');
+        setCholesterol('');
+        setDiabetes('');
+        setSmoking('');
+      };
 
   return (
     <div
@@ -80,18 +79,15 @@ export default function AddDetails() {
         backgroundImage: `url(${bg})`,
       }}
     >
+    <nav class="navbar navbar-light"  style={{backgroundColor: 'rgba(180, 232, 217, 1)'}}>
+          <span class="navbar-brand mb-0 h1">CVD Check</span>
+        </nav>
       <div class="borderClass">
         <div
           className="d-flex justify-content-center"
           id="d-flex-justify-content-center"
         >
-          <h1
-            class="d-flex justify-content-center-h"
-            id="d-flex-justify-content-center-h"
-          >
-            {" "}
-            CARDIOVASCULAR RISK ASSESSMENT
-          </h1>
+          <h1 id="d-flex-justify-content-center-h" style={{ paddingBottom: '4%', paddingTop: '4%', fontWeight: 'bolder'}}> 10-Year CVD Risk Prediction Of Sri Lankans</h1>
         </div>
 
         <div class="form-group" className="d-flex justify-content-center">
@@ -282,6 +278,7 @@ export default function AddDetails() {
               </p>
             </div>
             {/* <div className="card-body" style={{minHeight:45, backgroundColor: '#D1F1E6'}}>
+
                         
                      </div> */}
           </div>
