@@ -87,7 +87,7 @@ export default function AddDetails() {
           className="d-flex justify-content-center"
           id="d-flex-justify-content-center"
         >
-          <h1 id="d-flex-justify-content-center-h" style={{ paddingBottom: '4%', paddingTop: '4%', fontWeight: 'bolder'}}> 10-Year CVD Risk Prediction Of Sri Lankans</h1>
+          <h1 id="d-flex-justify-content-center-h"> 10-Year CVD Risk Prediction Of Sri Lankans</h1>
         </div>
 
         <div class="form-group" className="d-flex justify-content-center">

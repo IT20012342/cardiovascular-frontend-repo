@@ -55,7 +55,6 @@
 #d-flex-justify-content-center-h {
   color: #6668ff;
   padding-bottom: 4%;
-  font-size: 30;
   padding-top: 4%;
   font-weight: bolder;
 }
@@ -99,6 +98,11 @@
   .card{
     width: 70%;
     margin-bottom: 20px;
+  }
+  h1{
+    color: #6668ff;
+    font-size: 30px;
+    
   }
 }
 
