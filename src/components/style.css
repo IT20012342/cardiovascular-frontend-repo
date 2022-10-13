@@ -1,0 +1,13 @@
+
+@media only screen and (max-width: 600px) {
+    .borderClass {
+      background-color: lightblue;
+      width: '90%'
+  }
+  }
+  
+  .borderClass{
+    margin:'auto';
+    background-color: 'rgba(180, 232, 217, 0.5)'; 
+    width: '40%'
+  }
