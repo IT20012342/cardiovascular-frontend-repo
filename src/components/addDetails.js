@@ -1,6 +1,5 @@
-import React,{useState} from "react";
-var bg = require('../bg1.jpg');
-
+import React, { useState } from "react";
+var bg = require("../bg1.jpg");
 
 // const styles = {
 //     main: {
@@ -13,31 +12,29 @@ var bg = require('../bg1.jpg');
 //     }
 // };
 
-export default function AddDetails(){
+export default function AddDetails() {
+  const [age, setAge] = useState("");
+  const [sex, setSex] = useState("");
+  const [bloodpressure, setbloodpressure] = useState("");
+  const [cholesterol, setCholesterol] = useState("");
+  const [diabetes, setDiabetes] = useState("");
+  const [smoking, setSmoking] = useState("");
+  const [output, setOutput] = useState("");
+  const [resultColor, setResultColor] = useState("");
 
-    const [age, setAge] = useState('');
-    const [sex, setSex] = useState("");
-    const [bloodpressure, setbloodpressure] = useState("");
-    const [cholesterol, setCholesterol] = useState("");
-    const [diabetes, setDiabetes] = useState("");
-    const [smoking, setSmoking] = useState("");
-    const [output, setOutput] = useState("");
-    const [resultColor, setResultColor] = useState("");
-
-    function sendData(e) {
-        e.preventDefault();
+  function sendData(e) {
+    e.preventDefault();
 
     const jsonObj = {
-        age : age,
-        sex : sex,
-        bloodpressure : bloodpressure,
-        cholesterol : cholesterol,
-        diabetes : diabetes,
-        smoking : smoking
-    }
-
-
-    function generateResult(data){
+      age: age,
+      sex: sex,
+      bloodpressure: bloodpressure,
+      cholesterol: cholesterol,
+      diabetes: diabetes,
+      smoking: smoking,
+    };
+  
+  function generateResult(data){
         if(data === 0){
             setResultColor("blue")
             setOutput("Your Risk is < 20% ")
@@ -75,146 +72,218 @@ export default function AddDetails(){
         setSmoking('');
       };
 
-
-    return(
-        
-        <div style={{backgroundImage: `url(${bg})`, backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        width: '100vw',
-        height: '100vh'}}>
-
-        <nav class="navbar navbar-light"  style={{backgroundColor: 'rgba(180, 232, 217, 1)'}}>
+  return (
+    <div
+      class="div1"
+      style={{
+        backgroundImage: `url(${bg})`,
+      }}
+    >
+    <nav class="navbar navbar-light"  style={{backgroundColor: 'rgba(180, 232, 217, 1)'}}>
           <span class="navbar-brand mb-0 h1">CVD Check</span>
         </nav>
-            <div className = 'borderClass'>
-            <div className="d-flex justify-content-center">
-                <h1 style={{ paddingBottom: '4%', paddingTop: '4%', fontWeight: 'bolder'}}> 10-Year CVD Risk Prediction Of Sri Lankans</h1>
+      <div class="borderClass">
+        <div
+          className="d-flex justify-content-center"
+          id="d-flex-justify-content-center"
+        >
+          <h1 id="d-flex-justify-content-center-h" style={{ paddingBottom: '4%', paddingTop: '4%', fontWeight: 'bolder'}}> 10-Year CVD Risk Prediction Of Sri Lankans</h1>
+        </div>
 
-
+        <div class="form-group" className="d-flex justify-content-center">
+          <form onSubmit={sendData}>
+            <div class="form-group row">
+              <label class="col-sm col-form-label">Age</label>
+              <div class="col-sm text-center">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="age"
+                  placeholder="Age"
+                  value={age}
+                  onChange={(e) => {
+                    setAge(e.target.value);
+                  }}
+                  required
+                />
+              </div>
             </div>
 
-            <div class="form-group" className="d-flex justify-content-center">
+            <div class="form-group row">
+              <label class="col-sm col-form-label">Gender</label>
+              <div class="col-sm">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="gender"
+                    value="1"
+                    checked={sex === "1"}
+                    onChange={(e) => {
+                      setSex(e.target.value);
+                    }}
+                    required
+                  />
+                  <label class="form-check-label">Male</label>
+                </div>
 
-                <form onSubmit={sendData}>
-
-                    <div class="form-group row" >
-                        <label class="col-sm col-form-label">Age</label>
-                        <div class="col-sm text-center">
-                            <input type="number" class="form-control" id="age" placeholder="Age" value={age}
-                                onChange={(e) => {
-                                setAge(e.target.value);
-                            }}
-                        required />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm col-form-label">Gender</label>
-                        <div class="col-sm" style={{marginTop:'auto', marginBottom:'auto'}}>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="gender" value='1' checked={sex === '1'}
-                            onChange={(e) => {
-                                setSex(e.target.value);
-                            }}
-                            required/>
-                            <label class="form-check-label">Male</label>
-                        </div>
-
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="gender" value="2" checked={sex === '2'}
-                            onChange={(e) => {
-                                setSex(e.target.value);
-                            }}/>
-                            <label class="form-check-label">Female</label>
-                        </div>
-                    </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label class="col-sm col-form-label">Blood Pressure</label>
-                        <div class="col-sm">
-                            <input type="number" class="form-control" id="bloodPressure" placeholder="mmHg" value={bloodpressure}
-                            onChange={(e) => {
-                            setbloodpressure(e.target.value);
-                            }}
-                            required
-                            />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm col-form-label">Cholesterol Level</label>
-                        <div class="col-sm">
-                            <input type="number" class="form-control" id="cholesterolLevel" placeholder="mg/dl" 
-                            onChange={(e) => {
-                            setCholesterol(e.target.value);
-                            }}
-                            required/>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm col-form-label">Diabetes Patient</label>
-                        <div class="col-sm" style={{marginTop:'auto', marginBottom:'auto'}}>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="diabetes" id="diabetes" value="1" checked={diabetes === '1'}
-                            onChange={(e) => {
-                                setDiabetes(e.target.value);
-                            }}
-                            required/>
-                            <label class="form-check-label">Yes</label>
-                        </div>
-                        
-                        <div class="form-check form-check-inline" >
-                            <input class="form-check-input" type="radio" name="diabetes" id="diabetes" value="2" checked={diabetes === '2'}
-                            onChange={(e) => {
-                                setDiabetes(e.target.value);
-                            }}
-                            />
-                            <label class="form-check-label">No</label>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label class="col-sm col-form-label">Smoking</label>
-                        <div class="col-sm text-center">
-                        <select class="custom-select my-1 mr-sm-2" id="smoking" onChange={(e) => {
-                                setSmoking(e.target.value);
-                            }}
-                        required>
-                            <option value="" selected>Choose...</option>
-                            <option value="1">Never</option>
-                            <option value="2">Stopped Recently</option>
-                            <option value="3">Occasionally</option>
-                            <option value="4">Everyday</option>
-                        </select>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" style={{width: '100%', marginTop: 15}} disabled={!age || !sex || !bloodpressure || !cholesterol || !diabetes || !smoking}>SUBMIT</button>
-                    <div style={{marginTop:25}}></div>
-                    <button type="reset" class="btn btn-outline-primary" style={{width: '100%'}} onClick={resetHandler}>RESET</button>
-                
-                </form>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="gender"
+                    value="2"
+                    checked={sex === "2"}
+                    onChange={(e) => {
+                      setSex(e.target.value);
+                    }}
+                  />
+                  <label class="form-check-label">Female</label>
+                </div>
+              </div>
             </div>
-            
-            <div className="d-flex justify-content-center" style={{marginTop:40}}>
 
-                <div className="card">
+            <div class="form-group row">
+              <label class="col-sm col-form-label">Blood Pressure</label>
+              <div class="col-sm">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="bloodPressure"
+                  placeholder="mmHG"
+                  value={bloodpressure}
+                  onChange={(e) => {
+                    setbloodpressure(e.target.value);
+                  }}
+                  required
+                />
+              </div>
+            </div>
 
-                    <div className="card-header text-center font-weight-bold" style={{backgroundColor: '#8AE7C5'}}>
-                        <p className="card-text text-center" style={{color: resultColor}}>{output}</p>
-                    </div>
-                     {/* <div className="card-body" style={{minHeight:45, backgroundColor: '#D1F1E6'}}>
+            <div class="form-group row">
+              <label class="col-sm col-form-label">Cholesterol Level</label>
+              <div class="col-sm">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="cholesterolLevel"
+                  placeholder="mg/dL"
+                  onChange={(e) => {
+                    setCholesterol(e.target.value);
+                  }}
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm col-form-label">Diabetes Patient</label>
+              <div class="col-sm">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="diabetes"
+                    id="diabetes"
+                    value="1"
+                    checked={diabetes === "1"}
+                    onChange={(e) => {
+                      setDiabetes(e.target.value);
+                    }}
+                    required
+                  />
+                  <label class="form-check-label">Yes</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="diabetes"
+                    id="diabetes"
+                    value="2"
+                    checked={diabetes === "2"}
+                    onChange={(e) => {
+                      setDiabetes(e.target.value);
+                    }}
+                  />
+                  <label class="form-check-label">No</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm col-form-label">Smoking</label>
+              <div class="col-sm text-center">
+                <select
+                  class="custom-select my-1 mr-sm-2"
+                  id="smoking"
+                  onChange={(e) => {
+                    setSmoking(e.target.value);
+                  }}
+                  required
+                >
+                  <option value="" selected>
+                    Choose...
+                  </option>
+                  <option value="1">Never</option>
+                  <option value="2">Stopped Recently</option>
+                  <option value="3">Occasionally</option>
+                  <option value="4">Everday</option>
+                </select>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="btn-btn-primary"
+              disabled={
+                !age ||
+                !sex ||
+                !bloodpressure ||
+                !cholesterol ||
+                !diabetes ||
+                !smoking
+              }
+            >
+              SUBMIT
+            </button>
+            <div></div>
+            <button
+              style={{ marginTop: 25 }}
+              type="reset"
+              class="btn btn-outline-primary"
+              id="btn-btn-outline-primary"
+              onClick={resetHandler}
+            >
+              RESET
+            </button>
+          </form>
+        </div>
+
+        <div
+          style={{ marginTop: 40 }}
+          className="d-flex justify-content-center"
+        >
+          <div class="card bg-light mb-3 " id="card-bg-light-mb-3">
+            <div
+              className="card-header text-center font-weight-bold"
+              id="card-header-text-center-font-weight-bold"
+            >
+              <p className="card-text text-center" id="card-text-text-center">
+                {output}
+              </p>
+            </div>
+            {/* <div className="card-body" style={{minHeight:45, backgroundColor: '#D1F1E6'}}>
+
                         
                      </div> */}
-                </div>      
-            </div>   
-            </div>
+          </div>
         </div>
-       
-        
-    )
+      </div>
+    </div>
+  );
 }

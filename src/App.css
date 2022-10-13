@@ -38,6 +38,54 @@
 }
 
 
+.div1 {
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.borderClass {
+  margin: auto;
+  width: 46%;
+  background-color: rgba(180, 232, 217, 0.5);
+}
+
+#d-flex-justify-content-center-h {
+  color: #6668ff;
+  padding-bottom: 4%;
+  font-size: 30;
+  padding-top: 4%;
+  font-weight: bolder;
+}
+
+#btn-btn-primary {
+  width: 100%;
+}
+
+#btn-btn-outline-primary {
+  width: 100%;
+}
+
+.col-sm {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#card-bg-light-mb-3 {
+  width: 70%;
+}
+
+#card-header-text-center-font-weight-bold {
+  background-color: #8ae7c5;
+}
+
+#card-text-text-center {
+  color: resultColor;
+}
+
+
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (min-width: 600px) {
   .borderClass {
@@ -79,3 +127,4 @@
   color: red;
   font-size: 1000;
 } */
+
