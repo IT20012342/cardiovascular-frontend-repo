@@ -169,7 +169,7 @@ export default function AddDetails() {
                   type="number"
                   class="form-control"
                   id="cholesterolLevel"
-                  placeholder="mg/dL"
+                  placeholder="mg/dl"
                   onChange={(e) => {
                     setCholesterol(e.target.value);
                   }}
