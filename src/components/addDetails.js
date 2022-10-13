@@ -40,11 +40,11 @@ export default function AddDetails(){
     function generateResult(data){
         if(data === 0){
             setResultColor("blue")
-            setOutput("There is no risk of cardiovascular disease in the next ten years")
+            setOutput("Your Risk is < 20% ")
         }
         else if (data === 1){
             setResultColor("red")
-            setOutput("There is high risk of cardiovascular disease in the next ten years")
+            setOutput("Your Risk is > 20%")
         }
         else{
             alert("All the inputs are required")
@@ -83,9 +83,15 @@ export default function AddDetails(){
         backgroundRepeat: 'no-repeat',
         width: '100vw',
         height: '100vh'}}>
-            <div class = 'borderClass' style={{margin:'auto', backgroundColor: 'rgba(180, 232, 217, 0.5)', width: '46%'}}>
+
+<nav class="navbar navbar-light"  style={{backgroundColor: 'rgba(180, 232, 217, 1)'}}>
+  <span class="navbar-brand mb-0 h1">CVD Check</span>
+</nav>
+
+
+            <div class = 'borderClass' style={{margin:'auto', backgroundColor: 'rgba(180, 232, 217, 0.5)', width: '46%', marginTop: '1.5%'}}>
             <div className="d-flex justify-content-center">
-                <h1 style={{color: '#6668ff', paddingBottom: '4%', fontSize: 30, paddingTop: '4%', fontWeight: 'bolder'}}> CARDIOVASCULAR RISK ASSESSMENT</h1>
+                <h1 style={{color: '#6668ff', paddingBottom: '4%', fontSize: 30, paddingTop: '4%', fontWeight: 'bolder'}}> 10-Year CVD Risk Prediction Of Sri Lankans</h1>
             </div>
 
             <div class="form-group" className="d-flex justify-content-center">
@@ -128,7 +134,7 @@ export default function AddDetails(){
                     <div class="form-group row">
                         <label class="col-sm col-form-label">Blood Pressure</label>
                         <div class="col-sm">
-                            <input type="number" class="form-control" id="bloodPressure" placeholder="mmHG" value={bloodpressure}
+                            <input type="number" class="form-control" id="bloodPressure" placeholder="mmHg" value={bloodpressure}
                             onChange={(e) => {
                             setbloodpressure(e.target.value);
                             }}
@@ -140,7 +146,7 @@ export default function AddDetails(){
                     <div class="form-group row">
                         <label class="col-sm col-form-label">Cholesterol Level</label>
                         <div class="col-sm">
-                            <input type="number" class="form-control" id="cholesterolLevel" placeholder="mg/dL" 
+                            <input type="number" class="form-control" id="cholesterolLevel" placeholder="mg/dl" 
                             onChange={(e) => {
                             setCholesterol(e.target.value);
                             }}
@@ -195,7 +201,7 @@ export default function AddDetails(){
             </div>
             
             <div className="d-flex justify-content-center" style={{marginTop:40}}>
-                <div class="card bg-light mb-3 " style={{width:'70%'}}>
+                <div class="card bg-light mb-3 " style={{width:'50%'}}>
                     <div className="card-header text-center font-weight-bold" style={{backgroundColor: '#8AE7C5'}}>
                         <p className="card-text text-center" style={{color: resultColor}}>{output}</p>
                     </div>
