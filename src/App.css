@@ -37,7 +37,6 @@
   }
 }
 
-
 .div1 {
   width: 100vw;
   height: 100vh;
@@ -47,13 +46,10 @@
 }
 
 .borderClass {
-  margin: auto;
-  width: 46%;
   background-color: rgba(180, 232, 217, 0.5);
 }
 
 #d-flex-justify-content-center-h {
-  color: #6668ff;
   padding-bottom: 4%;
   padding-top: 4%;
   font-weight: bolder;
@@ -72,10 +68,6 @@
   margin-bottom: auto;
 }
 
-#card-bg-light-mb-3 {
-  width: 70%;
-}
-
 #card-header-text-center-font-weight-bold {
   background-color: #8ae7c5;
 }
@@ -84,10 +76,86 @@
   color: resultColor;
 }
 
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  #borderClass {
+    width: 95%;
+    background-color: rgba(180, 232, 217, 0.5);
+    margin: auto;
+  }
+  #card-bg-light-mb-3 {
+    width: 99%;
+    /* min-height: 30px; */
+  }
+  #d-flex-justify-content-center-h {
+    text-align: center;
+    color: #6668ffed;
+    font-size: 20px;
+  }
+}
 
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (min-width: 600px) {
-  .borderClass {
+  #borderClass {
+    width: 80%;
+    background-color: rgba(180, 232, 217, 0.5);
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+  }
+  #card-bg-light-mb-3 {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  #d-flex-justify-content-center-h {
+    text-align: center;
+    color: #6668ff;
+    font-size: 26px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+  #borderClass {
+    width: 70%;
+    background-color: rgba(180, 232, 217, 0.5);
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+  }
+  #card-bg-light-mb-3 {
+    width: 75%;
+  }
+  #d-flex-justify-content-center-h {
+    text-align: center;
+    color: #6668ff;
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #borderClass {
+    width: 60%;
+    background-color: rgba(180, 232, 217, 0.5);
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+  }
+  #card-bg-light-mb-3 {
+    width: 70%;
+  }
+  #d-flex-justify-content-center-h {
+    text-align: center;
+    color: #6668ff;
+    font-size: 35px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #borderClass {
     width: 46%;
     background-color: rgba(180, 232, 217, 0.5);
     margin-top: 25px;
@@ -95,40 +163,17 @@
     margin-right: auto;
     margin-bottom: auto;
   }
-  .card{
-    width: 70%;
-    margin-bottom: 20px;
+  #card-bg-light-mb-3 {
+    width: 60%;
   }
-  h1{
+  #d-flex-justify-content-center-h {
+    text-align: center;
     color: #6668ff;
-    font-size: 30px;
-    
+    font-size: 35px;
   }
 }
-
-/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .borderClass {
-    width: 95%;
-    background-color: rgba(180, 232, 217, 0.5);
-    margin: auto;
-    
-  }
-  .card{
-    width: 99%;
-    /* min-height: 30px; */
-  }
-  h1{
-    color: #6668ff;
-    font-size: 15px;
-    
-  }
-}
-
-
 
 /* h1{
   color: red;
   font-size: 1000;
 } */
-
