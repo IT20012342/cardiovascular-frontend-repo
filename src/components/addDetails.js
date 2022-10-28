@@ -159,8 +159,8 @@ export default function AddDetails() {
                     type="radio"
                     name="gender"
                     id="gender"
-                    value="2"
-                    checked={sex === "2"}
+                    value="0"
+                    checked={sex === "0"}
                     onChange={(e) => {
                       setSex(e.target.value);
                     }}
