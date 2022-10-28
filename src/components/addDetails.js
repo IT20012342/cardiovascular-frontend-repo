@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-var bg = require("../bg1.jpg");
+var bg = require("../CVDback10.jpg");
 
 // const styles = {
 //     main: {
@@ -21,6 +21,7 @@ export default function AddDetails() {
   const [smoking, setSmoking] = useState("");
   const [output, setOutput] = useState("");
   const [resultColor, setResultColor] = useState("");
+  const [resultBackColor, setResultBackColor] = useState("");
 
   function sendData(e) {
     e.preventDefault();
@@ -36,10 +37,12 @@ export default function AddDetails() {
 
     function generateResult(data) {
       if (data === 0) {
-        setResultColor("blue");
+        setResultColor("rgb(33, 195, 84)");
+        setResultBackColor("rgba(9, 171, 59, 0.2)");
         setOutput("Your Risk is < 20% ");
       } else if (data === 1) {
-        setResultColor("red");
+        setResultColor("rgb(255, 75, 75)");
+        setResultBackColor("rgba(255, 75, 75, 0.2)");
         setOutput("Your Risk is > 20%");
       } else {
         alert("All the inputs are required");
@@ -76,11 +79,10 @@ export default function AddDetails() {
         backgroundImage: `url(${bg})`,
       }}
     >
-      <nav
-        class="navbar navbar-light"
-        style={{ backgroundColor: "rgba(180, 232, 217, 1)" }}
-      >
-        <span class="navbar-brand mb-0 h1">CVD Check</span>
+      <nav class="navbar navbar-light" style={{ backgroundColor: "#600" }}>
+        <span class="navbar-brand mb-0 h1" style={{ color: "white" }}>
+          CVD Check
+        </span>
       </nav>
       <div class="borderClass" id="borderClass">
         <div
@@ -89,34 +91,47 @@ export default function AddDetails() {
         >
           <h1 id="d-flex-justify-content-center-h">
             {" "}
-            10-Year CVD Risk Prediction Of Sri Lankans
+            10-Year CVD Risk Prediction of Sri Lankans
           </h1>
         </div>
 
         <div class="form-group" className="d-flex justify-content-center">
           <form onSubmit={sendData}>
             <div class="form-group row">
-              <label class="col-sm col-form-label">Age</label>
+              <label class="col-sm col-form-label" id="col-sm-col-form-label">
+                Age
+              </label>
               <div class="col-sm text-center">
                 <input
+                  style={{
+                    backgroundColor: "#201b1b",
+                    color: "white",
+                    width: "110%",
+                  }}
                   type="number"
                   class="form-control"
                   id="age"
-                  placeholder="Age"
+                  placeholder="years"
                   value={age}
                   onChange={(e) => {
                     setAge(e.target.value);
                   }}
                   required
                 />
+                <div class="placeholder" style={{ color: "white" }}>
+                  years
+                </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm col-form-label">Gender</label>
+              <label class="col-sm col-form-label" id="col-sm-col-form-label">
+                Gender
+              </label>
               <div class="col-sm">
                 <div class="form-check form-check-inline">
                   <input
+                    style={{ backgroundColor: "#201b1b", color: "white" }}
                     class="form-check-input"
                     type="radio"
                     name="gender"
@@ -128,11 +143,18 @@ export default function AddDetails() {
                     }}
                     required
                   />
-                  <label class="form-check-label">Male</label>
+                  <label class="form-check-label" id="col-sm-col-form-label">
+                    Male
+                  </label>
                 </div>
 
                 <div class="form-check form-check-inline">
                   <input
+                    style={{
+                      backgroundColor: "#201b1b",
+                      color: "white",
+                      width: "110%",
+                    }}
                     class="form-check-input"
                     type="radio"
                     name="gender"
@@ -143,15 +165,24 @@ export default function AddDetails() {
                       setSex(e.target.value);
                     }}
                   />
-                  <label class="form-check-label">Female</label>
+                  <label class="form-check-label" id="col-sm-col-form-label">
+                    Female
+                  </label>
                 </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm col-form-label">Blood Pressure</label>
+              <label class="col-sm col-form-label" id="col-sm-col-form-label">
+                Blood Pressure
+              </label>
               <div class="col-sm">
                 <input
+                  style={{
+                    backgroundColor: "#201b1b",
+                    color: "white",
+                    width: "110%",
+                  }}
                   type="number"
                   class="form-control"
                   id="bloodPressure"
@@ -162,13 +193,23 @@ export default function AddDetails() {
                   }}
                   required
                 />
+                <div class="placeholder" style={{ color: "white" }}>
+                  mmHg
+                </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm col-form-label">Cholesterol Level</label>
+              <label class="col-sm col-form-label" id="col-sm-col-form-label">
+                Cholesterol Level
+              </label>
               <div class="col-sm">
                 <input
+                  style={{
+                    backgroundColor: "#201b1b",
+                    color: "white",
+                    width: "110%",
+                  }}
                   type="number"
                   class="form-control"
                   id="cholesterolLevel"
@@ -178,14 +219,24 @@ export default function AddDetails() {
                   }}
                   required
                 />
+                <div class="placeholder" style={{ color: "white" }}>
+                  mg/dl
+                </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm col-form-label">Diabetes Patient</label>
+              <label class="col-sm col-form-label" id="col-sm-col-form-label">
+                Diabetes Patient
+              </label>
               <div class="col-sm">
                 <div class="form-check form-check-inline">
                   <input
+                    style={{
+                      backgroundColor: "#201b1b",
+                      color: "white",
+                      width: "110%",
+                    }}
                     class="form-check-input"
                     type="radio"
                     name="diabetes"
@@ -197,11 +248,18 @@ export default function AddDetails() {
                     }}
                     required
                   />
-                  <label class="form-check-label">Yes</label>
+                  <label class="form-check-label" id="col-sm-col-form-label">
+                    Yes
+                  </label>
                 </div>
 
                 <div class="form-check form-check-inline">
                   <input
+                    style={{
+                      backgroundColor: "#201b1b",
+                      color: "white",
+                      width: "110%",
+                    }}
                     class="form-check-input"
                     type="radio"
                     name="diabetes"
@@ -212,15 +270,24 @@ export default function AddDetails() {
                       setDiabetes(e.target.value);
                     }}
                   />
-                  <label class="form-check-label">No</label>
+                  <label class="form-check-label" id="col-sm-col-form-label">
+                    No
+                  </label>
                 </div>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm col-form-label">Smoking</label>
+              <label class="col-sm col-form-label" id="col-sm-col-form-label">
+                Smoking
+              </label>
               <div class="col-sm text-center">
                 <select
+                  style={{
+                    backgroundColor: "#201b1b",
+                    color: "white",
+                    width: "110%",
+                  }}
                   class="custom-select my-1 mr-sm-2"
                   id="smoking"
                   onChange={(e) => {
@@ -231,7 +298,9 @@ export default function AddDetails() {
                   <option value="" selected>
                     Choose...
                   </option>
-                  <option value="1">Never</option>
+                  <option value="1" style={{}}>
+                    Never
+                  </option>
                   <option value="2">Stopped Recently</option>
                   <option value="3">Occasionally</option>
                   <option value="4">Everday</option>
@@ -240,8 +309,11 @@ export default function AddDetails() {
             </div>
 
             <button
+              style={{
+                borderColor: "white",
+              }}
               type="submit"
-              class="btn btn-primary"
+              class="btn btn-danger"
               id="btn-btn-primary"
               disabled={
                 !age ||
@@ -256,9 +328,12 @@ export default function AddDetails() {
             </button>
             <div></div>
             <button
-              style={{ marginTop: 25 }}
+              style={{
+                marginTop: 25,
+                borderColor: "white",
+              }}
               type="reset"
-              class="btn btn-outline-primary"
+              class="btn btn-outline-danger"
               id="btn-btn-outline-primary"
               onClick={resetHandler}
             >
@@ -275,8 +350,13 @@ export default function AddDetails() {
             <div
               className="card-header text-center font-weight-bold"
               id="card-header-text-center-font-weight-bold"
+              style={{ backgroundColor: resultBackColor }}
             >
-              <p className="card-text text-center" id="card-text-text-center">
+              <p
+                className="card-text text-center"
+                id="card-text-text-center"
+                style={{ color: resultColor }}
+              >
                 {output}
               </p>
             </div>
