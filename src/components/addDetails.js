@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Pdf from "../components/WHO.pdf";
 var bg = require("../CVDback10.jpg");
 
 // const styles = {
@@ -82,6 +83,7 @@ export default function AddDetails() {
       <nav class="navbar navbar-light" style={{ backgroundColor: "#600" }}>
         <span class="navbar-brand mb-0 h1" style={{ color: "white" }}>
           CVD Check
+        <span class="navbar-brand mb-0 h1"><a href = {Pdf} target = "_blank" ><button class = "btn btn-danger" id = "btnPdf" title="WHO chart aaaaaaaaaaaaaaaaaaaa">WHO chart </button></a></span>  
         </span>
       </nav>
       <div class="borderClass" id="borderClass">
