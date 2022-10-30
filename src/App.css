@@ -118,41 +118,100 @@
   color: rgb(255, 255, 255);
 }
 
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  #borderClass {
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: auto;
+  }
+  #card-bg-light-mb-3 {
+    width: 99%;
+    /* min-height: 30px; */
+  }
+  #d-flex-justify-content-center-h {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+  }
+}
+
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (min-width: 600px) {
-  .borderClass {
-    width: 46%;
-    /*background-color: rgb(126, 18, 21, 0.3);*/
-    background-color: rgb(0, 0, 0, 0.8);
+  #borderClass {
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.8);
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
   }
-  .card {
-    width: 70%;
+  #card-bg-light-mb-3 {
+    width: 80%;
     margin-bottom: 20px;
   }
-  h1 {
-    color: #6668ff;
+  #d-flex-justify-content-center-h {
+    text-align: center;
+    color: white;
+    font-size: 26px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+  #borderClass {
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+  }
+  #card-bg-light-mb-3 {
+    width: 75%;
+  }
+  #d-flex-justify-content-center-h {
+    text-align: center;
+    color: white;
     font-size: 30px;
   }
 }
 
-/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .borderClass {
-    width: 95%;
-    background-color: rgba(180, 232, 217, 0.5);
-    margin: auto;
+@media screen and (min-width: 992px) {
+  #borderClass {
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
   }
-  .card {
-    width: 99%;
-    /* min-height: 30px; */
+  #card-bg-light-mb-3 {
+    width: 70%;
   }
-  h1 {
-    color: #6668ff;
-    font-size: 15px;
+  #d-flex-justify-content-center-h {
+    text-align: center;
+    color: white;
+    font-size: 35px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #borderClass {
+    width: 46%;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+  }
+  #card-bg-light-mb-3 {
+    width: 60%;
+  }
+  #d-flex-justify-content-center-h {
+    text-align: center;
+    color: white;
+    font-size: 35px;
   }
 }
 

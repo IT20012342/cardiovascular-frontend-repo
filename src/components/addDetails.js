@@ -83,7 +83,19 @@ export default function AddDetails() {
       <nav class="navbar navbar-light" style={{ backgroundColor: "#600" }}>
         <span class="navbar-brand mb-0 h1" style={{ color: "white" }}>
           CVD Check
-        <span class="navbar-brand mb-0 h1"><a href = {Pdf} target = "_blank" ><button class = "btn btn-danger" id = "btnPdf" title="WHO chart aaaaaaaaaaaaaaaaaaaa">WHO chart </button></a></span>  
+        </span>
+        <span class="navbar-brand mb-0 h1">
+          <a href={Pdf} target="_blank">
+            <button
+              class="btn btn-warning btn-rounded"
+              id="btnPdf"
+              title="Download WHO Chart"
+              float="right"
+              style={{ textAlign: "right", "border-radius": "60%" }}
+            >
+              WHO chart{" "}
+            </button>
+          </a>
         </span>
       </nav>
       <div class="borderClass" id="borderClass">
