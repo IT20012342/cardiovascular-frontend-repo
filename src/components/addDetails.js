@@ -40,11 +40,13 @@ export default function AddDetails() {
       if (data === 0) {
         setResultColor("rgb(33, 195, 84)");
         setResultBackColor("rgba(9, 171, 59, 0.2)");
-        setOutput("Your Risk is < 20% ");
+        setOutput("No risk of cardiovascular disease in the next ten years");
+        //setOutput("Your Risk is < 20% ");
       } else if (data === 1) {
         setResultColor("rgb(255, 75, 75)");
         setResultBackColor("rgba(255, 75, 75, 0.2)");
-        setOutput("Your Risk is > 20%");
+        //setOutput("Your Risk is > 20%");
+        setOutput("High risk of cardiovascular disease in the next ten years");
       } else {
         alert("All the inputs are required");
       }
@@ -91,9 +93,13 @@ export default function AddDetails() {
               id="btnPdf"
               title="Download WHO Chart"
               float="right"
-              style={{ textAlign: "right", "border-radius": "60%" }}
+              style={{
+                textAlign: "right",
+                "border-radius": "30%",
+                fontWeight: "bold",
+              }}
             >
-              WHO chart{" "}
+              WHO Chart{" "}
             </button>
           </a>
         </span>
