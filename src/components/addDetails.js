@@ -203,7 +203,7 @@ export default function AddDetails() {
                     color: "white",
                     width: "110%",
                   }}
-                  type="number"
+                  type="decimal"
                   class="form-control"
                   id="bloodPressure"
                   placeholder="mmHg"
@@ -230,7 +230,7 @@ export default function AddDetails() {
                     color: "white",
                     width: "110%",
                   }}
-                  type="number"
+                  type="decimal"
                   class="form-control"
                   id="cholesterolLevel"
                   placeholder="mg/dl"
