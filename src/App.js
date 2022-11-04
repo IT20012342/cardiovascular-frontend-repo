@@ -10,7 +10,7 @@ function App() {
     // <Router>
     <div>
       <Helmet>
-        <title>CVD Checker</title>
+        <title>CVD Predictor</title>
         <meta name="description" content="Helmet application" />
       </Helmet>
       {/* <Route path="/add" component={AddDetails}exact/> */}
