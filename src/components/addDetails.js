@@ -23,6 +23,10 @@ export default function AddDetails() {
   const [output, setOutput] = useState("");
   const [resultColor, setResultColor] = useState("");
   const [resultBackColor, setResultBackColor] = useState("");
+  const [cholesterolError, setcholesterolError] = useState("");
+  const [bloodpressureError, setbloodpressureError] = useState("");
+  
+  
 
   function sendData(e) {
     e.preventDefault();
@@ -35,6 +39,30 @@ export default function AddDetails() {
       diabetes: diabetes,
       smoking: smoking,
     };
+
+    function validate(){
+      let bloodpressureError = "";
+      let cholesterolError = "";
+
+      if(bloodpressure<70|| bloodpressure>260){
+        bloodpressureError = "Blood pressure should be between 70 - 260";
+        // setbloodpressureError("Blood pressure should be between 90 - 200");
+      }
+      if(cholesterol<100|| cholesterol>400){
+        cholesterolError = "Cholesterol level should be between 100 - 400";
+        // setcholesterolError("Cholesterol level should be between 129 - 321");
+      }
+
+      if(bloodpressureError || cholesterolError){
+        setbloodpressureError(bloodpressureError);
+        setcholesterolError(cholesterolError);
+        return false;
+      }else{
+        setbloodpressureError("");
+        setcholesterolError("");
+        return true;
+      }     
+    }
 
     function generateResult(data) {
       if (data === 0) {
@@ -52,18 +80,22 @@ export default function AddDetails() {
       }
     }
 
+    const isValid = validate();
+
     // Simple POST request with a JSON body using fetch
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(jsonObj),
-    };
-    fetch(
-      "https://test-restapi-1.herokuapp.com/cardiac_prediction",
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((data) => generateResult(data));
+    if(isValid) {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(jsonObj),
+      };
+      fetch(
+        "https://test-restapi-1.herokuapp.com/cardiac_prediction",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((data) => generateResult(data));
+    }
   }
 
   const resetHandler = () => {
@@ -75,6 +107,8 @@ export default function AddDetails() {
     setSmoking("");
     setOutput("");
     setResultBackColor("");
+    setbloodpressureError("");
+    setcholesterolError("");
   };
 
   return (
@@ -91,14 +125,19 @@ export default function AddDetails() {
         <span class="navbar-brand mb-0 h1">
           <a href={Pdf} target="_blank">
             <button
-              class="btn btn-warning btn-rounded"
+              class="btn btn-shadow-lg btn-warning "
               id="btnPdf"
               title="Download WHO Chart"
               float="right"
               style={{
-                textAlign: "right",
-                "border-radius": "30%",
+                fontSize:"13px",
+                textAlign: "center",
+                verticalAlign: "middle",
+                borderRadius: "16px",
                 fontWeight: "bold",
+                outline: "#b36104 solid 3px",
+                // paddingTop:'4px',
+                // paddingBottom:'4px'
               }}
             >
               WHO Chart{" "}
@@ -113,7 +152,7 @@ export default function AddDetails() {
         >
           <h1 id="d-flex-justify-content-center-h">
             {" "}
-            10-Year CVD Risk Prediction of Sri Lankans
+            10 - Year CVD Risk Prediction of Sri Lankans
           </h1>
         </div>
 
@@ -128,7 +167,7 @@ export default function AddDetails() {
                   style={{
                     backgroundColor: "#201b1b",
                     color: "white",
-                    width: "110%",
+                    width: "100%",
                   }}
                   type="number"
                   class="form-control"
@@ -153,7 +192,7 @@ export default function AddDetails() {
               <div class="col-sm">
                 <div class="form-check form-check-inline">
                   <input
-                    style={{ backgroundColor: "#201b1b", color: "white" }}
+                    style={{ backgroundColor: "#201b1b", color: "white", WebkitAppearance:"radio"}}
                     class="form-check-input"
                     type="radio"
                     name="gender"
@@ -175,7 +214,8 @@ export default function AddDetails() {
                     style={{
                       backgroundColor: "#201b1b",
                       color: "white",
-                      width: "110%",
+                      width: "100%",
+                      WebkitAppearance:"radio"
                     }}
                     class="form-check-input"
                     type="radio"
@@ -203,7 +243,7 @@ export default function AddDetails() {
                   style={{
                     backgroundColor: "#201b1b",
                     color: "white",
-                    width: "110%",
+                    width: "100%",
                   }}
                   type="decimal"
                   class="form-control"
@@ -221,6 +261,10 @@ export default function AddDetails() {
               </div>
             </div>
 
+            <div class="d-flex justify-content-center align-top" id="bloodpressureError">
+              {bloodpressureError}
+            </div>
+
             <div class="form-group row">
               <label class="col-sm col-form-label" id="col-sm-col-form-label">
                 Cholesterol Level
@@ -230,7 +274,7 @@ export default function AddDetails() {
                   style={{
                     backgroundColor: "#201b1b",
                     color: "white",
-                    width: "110%",
+                    width: "100%",
                   }}
                   type="float"
                   class="form-control"
@@ -247,6 +291,10 @@ export default function AddDetails() {
               </div>
             </div>
 
+            <div class="d-flex justify-content-center align-top" id="cholesterolError">
+              {cholesterolError}
+            </div>
+
             <div class="form-group row">
               <label class="col-sm col-form-label" id="col-sm-col-form-label">
                 Diabetes Patient
@@ -257,7 +305,7 @@ export default function AddDetails() {
                     style={{
                       backgroundColor: "#201b1b",
                       color: "white",
-                      width: "110%",
+                      width: "100%",
                     }}
                     class="form-check-input"
                     type="radio"
@@ -280,7 +328,7 @@ export default function AddDetails() {
                     style={{
                       backgroundColor: "#201b1b",
                       color: "white",
-                      width: "110%",
+                      width: "100%",
                     }}
                     class="form-check-input"
                     type="radio"
@@ -308,7 +356,7 @@ export default function AddDetails() {
                   style={{
                     backgroundColor: "#201b1b",
                     color: "white",
-                    width: "110%",
+                    width: "100%",
                   }}
                   class="custom-select my-1 mr-sm-2"
                   id="smoking"
@@ -355,7 +403,7 @@ export default function AddDetails() {
                 borderColor: "white",
               }}
               type="reset"
-              class="btn btn-outline-danger"
+              class="btn"
               id="btn-btn-outline-primary"
               onClick={resetHandler}
             >

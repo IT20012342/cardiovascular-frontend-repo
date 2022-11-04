@@ -77,11 +77,11 @@
   border-color: #455963;
 }
 
-/*#btn-btn-primary:hover {
+#btn-btn-primary:hover:enabled {
   color: black;
   background-color: green;
   border-color: #455963;
-}*/
+}
 
 .col-sm {
   margin-top: auto;
@@ -91,8 +91,8 @@
 }
 .placeholder {
   position: absolute;
-  right: 4px;
-  top: 2px;
+  right: 10%;
+  top: 15%;
   pointer-events: none;
   opacity: 0.5;
 }
@@ -118,6 +118,18 @@
 #col-sm-col-form-label {
   font-weight: bold;
   color: rgb(255, 255, 255);
+}
+
+#bloodpressureError{
+  color: red;
+  margin-top: -3%;
+  margin-bottom: 3%;
+}
+
+#cholesterolError{
+  color: red;
+  margin-top: -3%;
+  margin-bottom: 3%;
 }
 
 /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
@@ -200,7 +212,7 @@
 
 @media screen and (min-width: 1200px) {
   #borderClass {
-    width: 46%;
+    width: 50%;
     background-color: rgba(0, 0, 0, 0.8);
     margin-top: 25px;
     margin-left: auto;
