@@ -246,6 +246,9 @@ input[type="number"] {
   color: rgb(220, 220, 220);
 }
 
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
 /* h1{
   color: red;
   font-size: 1000;
