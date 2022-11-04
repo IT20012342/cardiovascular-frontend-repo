@@ -107,6 +107,8 @@
 
 #card-header-text-center-font-weight-bold {
   background-color: rgb(0, 0, 0, 0.8);
+  width: 110%;
+  align-content: center;
 }
 /*
 #card-text-text-center {

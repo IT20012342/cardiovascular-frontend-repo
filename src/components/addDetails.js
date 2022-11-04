@@ -73,6 +73,8 @@ export default function AddDetails() {
     setCholesterol("");
     setDiabetes("");
     setSmoking("");
+    setOutput("");
+    setResultBackColor("");
   };
 
   return (
@@ -84,7 +86,7 @@ export default function AddDetails() {
     >
       <nav class="navbar navbar-light" style={{ backgroundColor: "#600" }}>
         <span class="navbar-brand mb-0 h1" style={{ color: "white" }}>
-          CVD Check
+          CVD Predictor
         </span>
         <span class="navbar-brand mb-0 h1">
           <a href={Pdf} target="_blank">
@@ -230,7 +232,7 @@ export default function AddDetails() {
                     color: "white",
                     width: "110%",
                   }}
-                  type="decimal"
+                  type="float"
                   class="form-control"
                   id="cholesterolLevel"
                   placeholder="mg/dl"
@@ -366,20 +368,19 @@ export default function AddDetails() {
           style={{ marginTop: 40 }}
           className="d-flex justify-content-center"
         >
-          <div class="card bg-light mb-3 " id="card-bg-light-mb-3">
-            <div
-              className="card-header text-center font-weight-bold"
-              id="card-header-text-center-font-weight-bold"
-              style={{ backgroundColor: resultBackColor }}
+          <div
+            className="card-header text-center font-weight-bold"
+            id="card-header-text-center-font-weight-bold"
+            style={{ backgroundColor: resultBackColor, width: "110%" }}
+          >
+            <p
+              className="card-text text-center"
+              id="card-text-text-center"
+              style={{ color: resultColor }}
             >
-              <p
-                className="card-text text-center"
-                id="card-text-text-center"
-                style={{ color: resultColor }}
-              >
-                {output}
-              </p>
-            </div>
+              {output}
+            </p>
+
             {/* <div className="card-body" style={{minHeight:45, backgroundColor: '#D1F1E6'}}>
 
                         
