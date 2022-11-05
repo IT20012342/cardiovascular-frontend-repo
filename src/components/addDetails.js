@@ -25,8 +25,6 @@ export default function AddDetails() {
   const [resultBackColor, setResultBackColor] = useState("");
   const [cholesterolError, setcholesterolError] = useState("");
   const [bloodpressureError, setbloodpressureError] = useState("");
-  
-  
 
   function sendData(e) {
     e.preventDefault();
@@ -40,28 +38,28 @@ export default function AddDetails() {
       smoking: smoking,
     };
 
-    function validate(){
+    function validate() {
       let bloodpressureError = "";
       let cholesterolError = "";
 
-      if(bloodpressure<70|| bloodpressure>260){
+      if (bloodpressure < 70 || bloodpressure > 260) {
         bloodpressureError = "Blood pressure should be between 70 - 260";
         // setbloodpressureError("Blood pressure should be between 90 - 200");
       }
-      if(cholesterol<100|| cholesterol>400){
+      if (cholesterol < 100 || cholesterol > 400) {
         cholesterolError = "Cholesterol level should be between 100 - 400";
         // setcholesterolError("Cholesterol level should be between 129 - 321");
       }
 
-      if(bloodpressureError || cholesterolError){
+      if (bloodpressureError || cholesterolError) {
         setbloodpressureError(bloodpressureError);
         setcholesterolError(cholesterolError);
         return false;
-      }else{
+      } else {
         setbloodpressureError("");
         setcholesterolError("");
         return true;
-      }     
+      }
     }
 
     function generateResult(data) {
@@ -83,7 +81,7 @@ export default function AddDetails() {
     const isValid = validate();
 
     // Simple POST request with a JSON body using fetch
-    if(isValid) {
+    if (isValid) {
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -130,7 +128,7 @@ export default function AddDetails() {
               title="Download WHO Chart"
               float="right"
               style={{
-                fontSize:"13px",
+                fontSize: "13px",
                 textAlign: "center",
                 verticalAlign: "middle",
                 borderRadius: "16px",
@@ -189,48 +187,26 @@ export default function AddDetails() {
               <label class="col-sm col-form-label" id="col-sm-col-form-label">
                 Gender
               </label>
-              <div class="col-sm">
-                <div class="form-check form-check-inline">
-                  <input
-                    style={{ backgroundColor: "#201b1b", color: "white", WebkitAppearance:"radio"}}
-                    class="form-check-input"
-                    type="radio"
-                    name="gender"
-                    id="gender"
-                    value="1"
-                    checked={sex === "1"}
-                    onChange={(e) => {
-                      setSex(e.target.value);
-                    }}
-                    required
-                  />
-                  <label class="form-check-label" id="col-sm-col-form-label">
-                    Male
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input
-                    style={{
-                      backgroundColor: "#201b1b",
-                      color: "white",
-                      width: "100%",
-                      WebkitAppearance:"radio"
-                    }}
-                    class="form-check-input"
-                    type="radio"
-                    name="gender"
-                    id="gender"
-                    value="0"
-                    checked={sex === "0"}
-                    onChange={(e) => {
-                      setSex(e.target.value);
-                    }}
-                  />
-                  <label class="form-check-label" id="col-sm-col-form-label">
-                    Female
-                  </label>
-                </div>
+              <div class="col-sm text-center">
+                <select
+                  style={{
+                    backgroundColor: "#201b1b",
+                    color: "white",
+                    width: "100%",
+                  }}
+                  class="custom-select my-1 mr-sm-2"
+                  id="gender"
+                  onChange={(e) => {
+                    setSex(e.target.value);
+                  }}
+                  required
+                >
+                  <option value="" selected>
+                    Choose...
+                  </option>
+                  <option value="1">Male</option>
+                  <option value="0">Female</option>
+                </select>
               </div>
             </div>
 
@@ -261,7 +237,10 @@ export default function AddDetails() {
               </div>
             </div>
 
-            <div class="d-flex justify-content-center align-top" id="bloodpressureError">
+            <div
+              class="d-flex justify-content-center align-top"
+              id="bloodpressureError"
+            >
               {bloodpressureError}
             </div>
 
@@ -291,7 +270,10 @@ export default function AddDetails() {
               </div>
             </div>
 
-            <div class="d-flex justify-content-center align-top" id="cholesterolError">
+            <div
+              class="d-flex justify-content-center align-top"
+              id="cholesterolError"
+            >
               {cholesterolError}
             </div>
 
@@ -299,51 +281,26 @@ export default function AddDetails() {
               <label class="col-sm col-form-label" id="col-sm-col-form-label">
                 Diabetes Patient
               </label>
-              <div class="col-sm">
-                <div class="form-check form-check-inline">
-                  <input
-                    style={{
-                      backgroundColor: "#201b1b",
-                      color: "white",
-                      width: "100%",
-                    }}
-                    class="form-check-input"
-                    type="radio"
-                    name="diabetes"
-                    id="diabetes"
-                    value="1"
-                    checked={diabetes === "1"}
-                    onChange={(e) => {
-                      setDiabetes(e.target.value);
-                    }}
-                    required
-                  />
-                  <label class="form-check-label" id="col-sm-col-form-label">
-                    Yes
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input
-                    style={{
-                      backgroundColor: "#201b1b",
-                      color: "white",
-                      width: "100%",
-                    }}
-                    class="form-check-input"
-                    type="radio"
-                    name="diabetes"
-                    id="diabetes"
-                    value="2"
-                    checked={diabetes === "2"}
-                    onChange={(e) => {
-                      setDiabetes(e.target.value);
-                    }}
-                  />
-                  <label class="form-check-label" id="col-sm-col-form-label">
-                    No
-                  </label>
-                </div>
+              <div class="col-sm text-center">
+                <select
+                  style={{
+                    backgroundColor: "#201b1b",
+                    color: "white",
+                    width: "100%",
+                  }}
+                  class="custom-select my-1 mr-sm-2"
+                  id="diabetes"
+                  onChange={(e) => {
+                    setDiabetes(e.target.value);
+                  }}
+                  required
+                >
+                  <option value="" selected>
+                    Choose...
+                  </option>
+                  <option value="1">Yes</option>
+                  <option value="2">No</option>
+                </select>
               </div>
             </div>
 
